@@ -14,14 +14,15 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Empleados',
-      url: '/folder/Inbox',
+      url: '/folder',
       icon: 'people'
     },
     {
-      title: 'Crear Empleado',
-      url: '/folder/Outbox',
-      icon: 'add-circle'
+      title: 'Proyectos',
+      url: '/folder',
+      icon: 'briefcase'
     },
+    
    
   ];
   
@@ -42,9 +43,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
+    // const path = window.location.pathname.split('folder/')[1];
+    // if (path !== undefined) {
+    //   this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    // }
   }
 }
