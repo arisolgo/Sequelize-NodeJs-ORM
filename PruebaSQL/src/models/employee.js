@@ -46,15 +46,21 @@ module.exports = (sequelize, DataTypes) => {
         },
         managerId: {
             type: DataTypes.INTEGER,
-            references: 'employee',
-            referencesKey: 'id'
+            references:{
+               model: 'employee', 
+               referencesKey: 'id'
+            } 
+           
 
 
         },
         addressId: {
             type: DataTypes.INTEGER,
-            references: 'address',
-            referencesKey: 'id'
+            references: {
+                model: 'address',
+                referencesKey: 'id'
+            }
+            
 
         }
 

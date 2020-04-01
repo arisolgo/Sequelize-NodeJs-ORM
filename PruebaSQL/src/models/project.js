@@ -29,8 +29,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         leaderId: {
             type: DataTypes.INTEGER,
-            references: 'employee',
-            referencesKey: 'id'
+            references: {
+                model:'employee',
+                referencesKey: 'id'
+            }
+           
 
         }
     });
