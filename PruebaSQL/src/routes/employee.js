@@ -7,25 +7,27 @@ module.exports = app => {
     console.log(Employee);
     
 
-    app.get('/Employee', (req, res) => {
+    app.get('/employee', (req, res) => {
 
         Employee.findByPk(req.params.id, {
-                attributes: ['id', 'firstName', 'lastName', 'salary',"startDate","endDate","managerId","addressId"]
+                attributes: ['id', 'firstName', 'lastName', 'salary','startDate','endDate','managerId','addressId']
             })
             .then(result => res.json(result))
             .catch(error => {
                 res.status(412).json({ msg: error.message });
+               
             });
     })
-    app.post('/Employee', (req, res) => {
+    app.post('/employee', (req, res) => {
        Employee.create(req.body)
             .then(result => res.json(result))
             .catch(error => {
                 res.status(412).json({ msg: error.message });
+                console.log(error);
             });
     })
 
-    app.put('/Employee/:id', (req, res) => {
+    app.put('/employee/:id', (req, res) => {
             Employee.update(req.body, { where: req.params })
                 .then(result => res.sendStatus(204))
                 .catch(error => {
@@ -33,7 +35,7 @@ module.exports = app => {
                 });
 
         })
-        .delete('Employee/:id', (req, res) => {
+        .delete('employee/:id', (req, res) => {
             Employee.destroy({ where: req.params })
                 .then(result => res.sendStatus(204))
                 .catch(error => {

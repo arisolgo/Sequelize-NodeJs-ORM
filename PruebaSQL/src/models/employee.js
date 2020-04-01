@@ -3,6 +3,7 @@
 
 module.exports = (sequelize, DataTypes) => {
     const Employee = sequelize.define('Employee', {
+
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -44,23 +45,21 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true
             }
         },
+
         managerId: {
             type: DataTypes.INTEGER,
             references:{
                model: 'employee', 
                referencesKey: 'id'
             } 
-           
-
-
         },
+
         addressId: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'address',
-                referencesKey: 'id'
+                key: 'id'
             }
-            
 
         }
 
@@ -71,6 +70,7 @@ module.exports = (sequelize, DataTypes) => {
     Employee.associate = (models) => {
         Employee.hasMany(models.Project);
     };
+    
     Employee.associate = (models) => {
         Employee.hasOne(models.Address);
     };
