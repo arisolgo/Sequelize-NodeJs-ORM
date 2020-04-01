@@ -3,5 +3,3 @@ module.exports = app => {
         console.log('server on port', app.get('port'));
     });
 };
-
-

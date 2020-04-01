@@ -1,29 +1,19 @@
-module.exports = (sequelize, DataType) => { 
-    const projectEmployee = sequelize.define('projectEmployee',{
-         id: {
-             type: DataType.INTEGER,
-             primaryKey: true,
-             autoIncrement: true
-         },
-         title:{
-             type: DataType.STRING, 
-             allowNull: false,
-             validate:{
-                 notEmpty: true
-             },
-             done: {
-                 type: DataType.BOOLEAN,
-                 allowNull: false,
-                 defaultValue: false 
-             }
- 
-         }
-     });
- 
-     projectEmployee.associate = (models) => {
-         projectEmployee.belongsTo(models.Users);
-     };
- 
-     return projectEmployee;
-         
- };
+module.exports = (sequelize, DataType) => {
+    const ProjectEmployee = sequelize.define('ProjectEmployee', {
+        projectId: {
+            type: DataType.INTEGER,
+            references: 'project',
+            referencesKey: 'id'
+        },
+        employeeId: {
+            type: DataType.INTEGER,
+            references: 'employee',
+            referencesKey: 'id'
+        }
+    });
+
+
+
+    return ProjectEmployee;
+
+};

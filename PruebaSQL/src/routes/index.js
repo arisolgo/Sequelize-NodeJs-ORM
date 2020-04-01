@@ -1,6 +1,5 @@
 module.exports = app => {
-    app.get("/", (req,res) => {
-        res.json({status: 'task api'});
+    app.get("/", (req, res) => {
+        res.json({ status: 'Projects api' });
     });
 };
-

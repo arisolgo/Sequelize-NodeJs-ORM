@@ -1,29 +1,54 @@
-module.exports = (sequelize, DataType) => { 
-   const address = sequelize.define('address',{
+module.exports = (sequelize, DataType) => {
+    const Address = sequelize.define('Address', {
         id: {
             type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        title:{
-            type: DataType.STRING, 
+        street: {
+            type: DataType.STRING,
             allowNull: false,
-            validate:{
+            validate: {
                 notEmpty: true
-            },
-            done: {
-                type: DataType.BOOLEAN,
-                allowNull: false,
-                defaultValue: false 
             }
+        },
 
+        city: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        province: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        country: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        postcode: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
         }
+
+
     });
 
-    address.associate = (models) => {
-        address.belongsTo(models.Users);
+    Address.associate = (models) => {
+        Address.belongsTo(models.Employee);
     };
 
-    return address;
-        
+    return Address;
+
 };
