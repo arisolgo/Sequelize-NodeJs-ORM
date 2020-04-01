@@ -10,7 +10,12 @@ const routes: Routes = [
   {
     path: 'folder',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'projects',
+    loadChildren: () => import('./projects/projects.module').then( m => m.ProjectsPageModule)
   }
+
 ];
 
 @NgModule({
