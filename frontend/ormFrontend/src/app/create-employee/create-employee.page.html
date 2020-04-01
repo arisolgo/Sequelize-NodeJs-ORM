@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen] = "true">
+
+    <ion-card>
+      <ion-card-header> Datos personales</ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <ion-item>
+            <ion-input placeholder="Nombre"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-input placeholder="Apellido"></ion-input>
+          </ion-item>
+        </ion-list>
+
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header> Teléfono </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+          <ion-item>              
+            <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
+                <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
+              </ion-select> -->
+              <ion-select placeholder="Tipo">
+                <ion-select-option> Residencial </ion-select-option>
+                <ion-select-option> Celular </ion-select-option>
+              </ion-select>
+            </ion-item>
+          <ion-item>
+            <ion-input placeholder="Número" type="number"></ion-input>
+          </ion-item>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header> Dirección </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+        
+          <ion-item>
+            <ion-input placeholder="Calle" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="Ciudad" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="Provincia" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="Pais" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="Codigo Postal" type="number"></ion-input>
+          </ion-item>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header> Datos Laborales </ion-card-header>
+      <ion-card-content>
+        <ion-item style="width: 100px; text-align: center;">
+          <ion-input placeholder="Salario"  type="number" min = "0">$</ion-input>
+        </ion-item>
+
+        <ion-item>              
+          <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
+              <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
+            </ion-select> -->
+            <ion-select placeholder="Gerente">
+              <ion-select-option> Prueba </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
+          <ion-button size ="default" (click) ="pickStartDate()" shape="round">Fecha de Inicio</ion-button>
+     </div>
+
+     <ion-item>
+     
+      <ion-input placeholder ="Fecha de Inicio " [(ngModel)]="startDate" required  ></ion-input>
+    </ion-item>
+
+    
+
+      <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
+        <ion-button size ="default" (click) ="pickEndDate()" shape="round">Fecha de finalización</ion-button>
+   </div>
+
+   <ion-item>
+    
+    <ion-input placeholder ="Fecha de finalización " [(ngModel)]="endDate"   ></ion-input>
+  </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    
+
+
+
+    <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
+      <ion-button size ="default" (click) ="pickEndDate()">Crear Empleado</ion-button>
+ </div>
+
+  
+</ion-content>

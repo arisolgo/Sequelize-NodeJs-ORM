@@ -1,0 +1,17 @@
+ion-select .select-text {
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 16px;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   
+}
+
+ion-select .select-icon{
+    left: 3px;
+}
+
+ion-select{
+    max-width: 70% !important;
+}
