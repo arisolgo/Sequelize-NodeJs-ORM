@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         firstName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 notEmpty: true
             }
@@ -18,28 +18,28 @@ module.exports = (sequelize, DataTypes) => {
 
         lastName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 notEmpty: true
             }
         },
         salary: {
-            type: DataTypes.DECIMAL(10, 2),
-            allowNull: false,
+            type: DataTypes.INTEGER,
+            allowNull: true,
             validate: {
                 notEmpty: true
             }
         },
         startDate: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 notEmpty: true
             }
         },
         endDate: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 notEmpty: true
             }

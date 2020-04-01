@@ -1,7 +1,7 @@
 
 
 module.exports = app => {
-    var db = require('../models/employee')
+    let db = require('../models/employee')
     console.log(db);
     const Employee = app.db.models.Employee;
     console.log(Employee);
