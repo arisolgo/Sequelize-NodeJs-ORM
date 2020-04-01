@@ -2,7 +2,7 @@ module.exports = app => {
     const Project = app.db.models.Project;
 
     app.route('/project')
-    .get('/project', (req, res) => {
+    .get((req, res) => {
             Project.findAll({})
                 .then(result => res.json(result))
                 .catch(error => {
