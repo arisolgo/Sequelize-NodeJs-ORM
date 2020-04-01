@@ -22,5 +22,10 @@ export class FolderPage implements OnInit {
 
 
   
+  createEmployee(){
+    this.router.navigate(['/create-employee']);
+  }
+
+
 
 }
