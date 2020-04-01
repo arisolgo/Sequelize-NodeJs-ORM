@@ -5,11 +5,9 @@ import path from 'path';
 let db = null;
 
 module.exports = app => {
-
-    const config = app.libs.config;
-    console.log(config);
-
     if (!db) {
+        const config = app.libs.config;
+
         const sequelize = new Sequelize(
             config.database,
             config.username,
@@ -22,7 +20,7 @@ module.exports = app => {
             models: {}
         };
 
-        const dir = path.join(__dirname, 'models');
+        /* const dir = path.join(__dirname, 'models');
         fs.readdirSync(dir).forEach(filename => {
             const modelDir = path.join(dir, filename);
             const model = sequelize.import(modelDir);
@@ -33,6 +31,19 @@ module.exports = app => {
             db.models[key].associate(db.models);
 
         });
-    }
+    } */ 
+
+    const dir = path.join(__dirname, 'models');
+    fs.readdirSync(dir).forEach(filename => {
+      const modelDir = path.join(dir, filename);
+      const model = sequelize.import(modelDir);
+      db.models[model.name] = model;
+    });
+    
+    Object.keys(db.models).forEach(key => {
+    });
+  }
+
+
     return db;
 };

@@ -1,12 +1,12 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
     const Project = sequelize.define('Project', {
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         type: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -14,21 +14,21 @@ module.exports = (sequelize, DataType) => {
         },
 
         name: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         budget: {
-            type: DataType.DECIMAL(10, 2),
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         leaderId: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             references: 'employee',
             referencesKey: 'id'
 

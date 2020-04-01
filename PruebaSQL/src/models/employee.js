@@ -1,12 +1,15 @@
-module.exports = (sequelize, DataType) => {
+
+
+
+module.exports = (sequelize, DataTypes) => {
     const Employee = sequelize.define('Employee', {
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         firstName: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -14,42 +17,42 @@ module.exports = (sequelize, DataType) => {
         },
 
         lastName: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         salary: {
-            type: DataType.DECIMAL(10, 2),
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         startDate: {
-            type: DataType.DATE,
+            type: DataTypes.DATE,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         endDate: {
-            type: DataType.DATE,
+            type: DataTypes.DATE,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         managerId: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             references: 'employee',
             referencesKey: 'id'
 
 
         },
         addressId: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             references: 'address',
             referencesKey: 'id'
 

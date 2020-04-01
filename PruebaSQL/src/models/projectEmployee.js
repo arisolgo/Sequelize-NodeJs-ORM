@@ -1,12 +1,12 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
     const ProjectEmployee = sequelize.define('ProjectEmployee', {
         projectId: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             references: 'project',
             referencesKey: 'id'
         },
         employeeId: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             references: 'employee',
             referencesKey: 'id'
         }

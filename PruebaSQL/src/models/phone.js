@@ -1,12 +1,12 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
     const Phone = sequelize.define('Phone', {
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         type: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -15,21 +15,21 @@ module.exports = (sequelize, DataType) => {
 
         },
         phoneNumber: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         areaCode: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         ownerId: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             references: 'employee',
             referencesKey: 'id'
         }

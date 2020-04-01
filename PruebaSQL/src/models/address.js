@@ -1,12 +1,12 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
     const Address = sequelize.define('Address', {
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         street: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -14,28 +14,28 @@ module.exports = (sequelize, DataType) => {
         },
 
         city: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         province: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         country: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         postcode: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
