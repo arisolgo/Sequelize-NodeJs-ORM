@@ -1,7 +1,7 @@
 
 
 module.exports = app => {
-    var db = require('../models/employee')
+    let db = require('../models/employee')
     console.log(db);
     const Employee = app.db.models.Employee;
     console.log(Employee);
@@ -18,7 +18,7 @@ module.exports = app => {
             });
     })
     app.post('/Employee', (req, res) => {
-       db.Employee.create(req.body)
+            Employee.create(req.body)
             .then(result => res.json(result))
             .catch(error => {
                 res.status(412).json({ msg: error.message });
