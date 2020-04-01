@@ -14,9 +14,14 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () => import('./projects/projects.module').then( m => m.ProjectsPageModule)
-  },  {
+  },
+  {
     path: 'create-project',
     loadChildren: () => import('./create-project/create-project.module').then( m => m.CreateProjectPageModule)
+  },
+  {
+    path: 'project-detail/:id',
+    loadChildren: () => import('./project-detail/project-detail.module').then( m => m.ProjectDetailPageModule)
   }
 
 

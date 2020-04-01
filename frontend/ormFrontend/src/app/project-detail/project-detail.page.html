@@ -9,6 +9,19 @@
 
 <ion-content [fullscreen] = "true">
 
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list>
+      <ion-fab-button color="danger" data-desc="Eliminar" (click)="deleteProject();">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
+
     <ion-card>
       <ion-card-header> Datos generales</ion-card-header>
       <ion-card-content>
@@ -73,7 +86,7 @@
 
 
     <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
-      <ion-button size ="default">Crear Proyecto</ion-button>
+      <ion-button size ="default">Editar Proyecto</ion-button>
  </div>
 
   

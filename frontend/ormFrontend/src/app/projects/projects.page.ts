@@ -17,6 +17,10 @@ export class ProjectsPage implements OnInit {
     this.router.navigate(['/create-project']);
   }
 
+  goToEditProject(project){
+    this.router.navigate(["/project-detail", 2]);
+  }
+
 
 
 }
