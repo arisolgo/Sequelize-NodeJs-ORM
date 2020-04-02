@@ -28,3 +28,4 @@ npm-debug.log*
 /node_modules
 /plugins
 /www
+/node_modules/.cache/@babel/register/.babel.7.9.0.development.json
