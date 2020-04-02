@@ -58,9 +58,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             references: {
                 model: 'address',
-                key: 'id'
-            }
-
+                referencesKey: 'id'
+            },
         }
 
 
@@ -72,7 +71,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     
     Employee.associate = (models) => {
-        Employee.hasOne(models.Address);
+        Employee.hasOne(models.Address)
     };
 
     return Employee;
