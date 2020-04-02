@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AddressService } from '../services/address.service';
 
 @Component({
   selector: 'app-folder',
@@ -8,11 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  addresses:any;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private addressService:AddressService ) { }
 
   ngOnInit() {
-    // this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getAllAddresses();
   }
+
+  getAllAddresses(){
+      this.addressService.getAllAddress().subscribe(result=>{
+          console.log(result);
+      }, err=>{
+        console.log(err);
+      })
+  }
+  
+
+
 
 }
