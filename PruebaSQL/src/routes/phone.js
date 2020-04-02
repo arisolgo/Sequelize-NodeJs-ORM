@@ -47,7 +47,7 @@ module.exports = app => {
         .delete('/phone/:id', (req, res) => {
             Phone.destroy({ where: req.params })
                 .then(result => res.sendStatus(204))
-                .catch(error => {
+                .catch(error => {//
                     res.status(412).json({ msg: error.message });
                 });
         });
