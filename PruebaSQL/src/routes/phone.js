@@ -39,7 +39,7 @@ module.exports = app => {
     app.put('/phone/:id', (req, res) => {
         Phone.update(req.body, { where: req.params })
                 .then(result => res.sendStatus(204))
-                .catch(error => {
+                .catch(error => {//
                     res.status(412).json({ msg: error.message });
                 });
 
