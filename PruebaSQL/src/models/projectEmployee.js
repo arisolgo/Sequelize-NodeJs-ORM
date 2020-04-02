@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    // ProjectEmployee.associate = (models) => {
-    //     ProjectEmployee.belongsTo(models.Employee);
-    // };
-    // ProjectEmployee.associate = (models) => {
-    //     ProjectEmployee.belongsTo(models.Project);
-    // };
+    ProjectEmployee.associate = (models) => {
+        ProjectEmployee.belongsTo(models.Employee);
+    };
+    ProjectEmployee.associate = (models) => {
+        ProjectEmployee.belongsTo(models.Project);
+    };
 
     return ProjectEmployee;
 
