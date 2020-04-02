@@ -1,36 +1,56 @@
+
+
 module.exports = app => {
-    const Employee = app.db.models.Task;
+    let db = require('../models/employee')
+    console.log(db);
+    const Employee = app.db.models.Employee;
+    console.log(Employee);
+    
 
+    app.get('/employee/:id', (req, res) => {
 
-    app.get('/projecto/:id', (req, res) => {
-
-        Project.findById(req.params.id, {
-                attributes: ['id', 'firstName', 'lastName', 'salary']
+        Employee.findByPk(req.params.id, {
+                attributes: ['id', 'firstName', 'lastName', 'salary','startDate', 'endDate', 'managerId', 'addressId']
             })
             .then(result => res.json(result))
             .catch(error => {
                 res.status(412).json({ msg: error.message });
-            });
-    })
-    app.post('/project', (req, res) => {
-        Project.create(req.body)
-            .then(result => res.json(result))
-            .catch(error => {
-                res.status(412).json({ msg: error.message });
+               
             });
     })
 
-    app.put('/project:id', (req, res) => {
-            Project.update(req.body, { where: req.params })
+    app.get('/employee', (req, res) => {
+
+        Employee.findAll({})
+            .then(result => res.json(result))
+            .catch(error => {
+                res.status(412).json({ msg: error.message });
+               
+            });
+    })
+
+
+    app.post('/employee', (req, res) => {
+       Employee.create(req.body)
+            .then(result => res.json(result))
+            .catch(error => {
+                res.status(412).json({ msg: error.message });
+                console.log(error);
+            });
+    })
+
+    app.put('/employee/:id', (req, res) => {
+            Employee.update(req.body, { where: req.params })
                 .then(result => res.sendStatus(204))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
                 });
 
         })
-        .delete('project:id', (req, res) => {
-            Project.destroy({ where: req.params })
-                .then(result => res.sendStatus(204))
+
+        app.delete('/employee/:id', (req, res) => {
+            Employee.destroy({ where: req.params })
+                .then(result => res.sendStatus(204).json({ msg: result }))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
                 });

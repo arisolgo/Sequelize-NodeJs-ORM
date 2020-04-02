@@ -1,24 +1,25 @@
 module.exports = app => {
-    const Project = app.db.models.Task;
+    const Project = app.db.models.Project;
 
     app.route('/project')
-        .get('/project', (req, res) => {
+        .get((req, res) => {
             Project.findAll({})
                 .then(result => res.json(result))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
                 });
         })
-        .post((req, res) => {
-            Tasks.create(req.body)
-                .then(result => res.json(result))
-                .catch(error => {
-                    res.status(412).json({ msg: error.message });
-                });
 
-        });
+    .post((req, res) => {
+        Project.create(req.body)
+            .then(result => res.json(result))
+            .catch(error => {
+                res.status(412).json({ msg: error.message });
+            });
 
-    app.route('/projecto/:id')
+    });
+
+    app.route('/project/:id')
         .get((req, res) => {
             Project.findOne({ where: req.params })
                 .then(result => res.json(result))

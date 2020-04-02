@@ -1,12 +1,13 @@
 module.exports = {
-    database: 'project',
+    database: 'Project',
     username: '',
     password: '',
     params: {
         dialect: 'sqlite',
         storage: 'project-db.sqlite',
         define: {
-            underscore: true
+            underscore: true,
+            freezeTableName: true
         },
         operatorAliases: false
 
