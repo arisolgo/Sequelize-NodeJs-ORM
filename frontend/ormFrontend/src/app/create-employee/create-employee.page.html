@@ -14,11 +14,11 @@
       <ion-card-content>
         <ion-list lines="full" class="ion-no-margin ion-no-padding">
           <ion-item>
-            <ion-input placeholder="Nombre"></ion-input>
+            <ion-input [(ngModel)]="employee.firstName" placeholder="Nombre"></ion-input>
           </ion-item>
         
           <ion-item>
-            <ion-input placeholder="Apellido"></ion-input>
+            <ion-input [(ngModel)]="employee.lastName" placeholder="Apellido"></ion-input>
           </ion-item>
         </ion-list>
 
@@ -34,13 +34,13 @@
             <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
                 <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
               </ion-select> -->
-              <ion-select placeholder="Tipo">
-                <ion-select-option> Residencial </ion-select-option>
-                <ion-select-option> Celular </ion-select-option>
+              <ion-select [(ngModel)] ="phone.type"  placeholder="Tipo">
+                <ion-select-option value="Residencial"> Residencial </ion-select-option>
+                <ion-select-option value="Celular"> Celular </ion-select-option>
               </ion-select>
             </ion-item>
           <ion-item>
-            <ion-input placeholder="Número" type="number"></ion-input>
+            <ion-input placeholder="Número" [(ngModel)] = "phone.phoneNumber" type="number"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -54,23 +54,23 @@
 
         
           <ion-item>
-            <ion-input placeholder="Calle" type="text"></ion-input>
+            <ion-input [(ngModel)] = "address.street" placeholder="Calle" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input placeholder="Ciudad" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.city" placeholder="Ciudad" type="number"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input placeholder="Provincia" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.province" placeholder="Provincia" type="number"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input placeholder="Pais" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.country" placeholder="Pais" type="number"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input placeholder="Codigo Postal" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.postCode" placeholder="Codigo Postal" type="number"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -81,15 +81,15 @@
       <ion-card-header> Datos Laborales </ion-card-header>
       <ion-card-content>
         <ion-item style="width: 100px; text-align: center;">
-          <ion-input placeholder="Salario"  type="number" min = "0">$</ion-input>
+          <ion-input [(ngModel)] = "employee.salary" placeholder="Salario"  type="number" min = "0">$</ion-input>
         </ion-item>
 
         <ion-item>              
           <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
               <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
             </ion-select> -->
-            <ion-select placeholder="Gerente">
-              <ion-select-option> Prueba </ion-select-option>
+            <ion-select  [(ngModel)] ="manager" (ionChange)="setManager(manager)" placeholder="Gerente">
+              <ion-select-option *ngFor="let manager of allEmployees"> {{manager.id}} - {{manager.firstName}} {{manager.lastName}} </ion-select-option>
             </ion-select>
           </ion-item>
 
@@ -120,7 +120,7 @@
 
 
     <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
-      <ion-button size ="default" (click) ="pickEndDate()">Crear Empleado</ion-button>
+      <ion-button size ="default" (click) ="createEmployee()">Crear Empleado</ion-button>
  </div>
 
   

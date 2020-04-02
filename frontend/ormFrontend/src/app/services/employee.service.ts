@@ -7,7 +7,7 @@ import { throwError } from 'rxjs/internal/observable/throwError';
 })
 export class EmployeeService {
 
-  baseUrl = 'http://localhost:4000';
+  baseUrl = ' http://192.168.137.1:4000';
   allEmployees: any = [];
   iphoneFlgFrc = true;
 
