@@ -1,16 +1,16 @@
 
 
 module.exports = app => {
-    let db = require('../models/address')
+    let db = require('../models/phone')
     console.log(db);
-    const Address = app.db.models.Address;
-    console.log(Address);
+    const Phone = app.db.models.Phone;
+    console.log(Phone);
     
 
-    app.get('/address/:id', (req, res) => {
+    app.get('/phone/:id', (req, res) => {
 
-        Address.findByPk(req.params.id, {
-                attributes: ['id', 'street', 'city', 'province','country','postcode', 'addressId']
+        Phone.findByPk(req.params.id, {
+                attributes: ['id', 'type', 'phoneNumber', 'areaCode','ownerId']
             })
             .then(result => res.json(result))
             .catch(error => {
@@ -18,8 +18,8 @@ module.exports = app => {
             });
     })
 
-    app.get('/address', (req, res) => {
-        Address.findAll({})
+    app.get('/phone', (req, res) => {
+        Phone.findAll({})
                 .then(result => res.json(result))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
@@ -28,24 +28,24 @@ module.exports = app => {
 
 
 
-    app.post('/address', (req, res) => {
-        Address.create(req.body)
+    app.post('/phone', (req, res) => {
+        Phone.create(req.body)
             .then(result => res.json(result))
             .catch(error => {
                 res.status(412).json({ msg: error.message });
             });
     })
 
-    app.put('/address/:id', (req, res) => {
-        Address.update(req.body, { where: req.params })
+    app.put('/phone/:id', (req, res) => {
+        Phone.update(req.body, { where: req.params })
                 .then(result => res.sendStatus(204))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
                 });
 
         })
-        .delete('/address/:id', (req, res) => {
-            Address.destroy({ where: req.params })
+        .delete('/phone/:id', (req, res) => {
+            Phone.destroy({ where: req.params })
                 .then(result => res.sendStatus(204))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
