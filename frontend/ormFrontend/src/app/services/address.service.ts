@@ -12,12 +12,12 @@ export class AddressService {
 
   constructor(private http: HttpClient) {}
 
-  getAddress() {
+  getAllAddress() {
     this.allAddress = this.http.get(this.baseUrl + '/address');
     return this.allAddress;
   }
 
-  getAddressById(id) {
+  getAddress(id) {
     return this.http
       .get(this.baseUrl + '/address/' + id);
   }
