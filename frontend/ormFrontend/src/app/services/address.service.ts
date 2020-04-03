@@ -28,10 +28,8 @@ export class AddressService {
   }
 
   updateAddress(id, formData) {
-    const postData = JSON.stringify(formData);
-   
     return this.http.put(
-      this.baseUrl +  '/address/' + id, postData);
+      this.baseUrl +  '/address/' + id, formData);
   }
 
   deleteAddress(id) {

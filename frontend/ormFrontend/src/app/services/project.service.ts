@@ -23,15 +23,15 @@ export class ProjectService {
   }
 
   addProject(formData) {
-    const postData = JSON.stringify(formData);
-    return this.http.post(this.baseUrl + '/project/', postData);
+    
+    return this.http.post(this.baseUrl + '/project/', formData);
   }
 
   updateProject(id, formData) {
-    const postData = JSON.stringify(formData);
+    
    
     return this.http.put(
-      this.baseUrl +  '/project/' + id, postData);
+      this.baseUrl +  '/project/' + id, formData);
   }
 
   deleteProject(id) {

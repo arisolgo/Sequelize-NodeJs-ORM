@@ -20,11 +20,7 @@
   <ion-list >
       <ion-grid style="height: 100%">
         <ion-row justify-content-center align-items-center style="height: 100%">
-<<<<<<< HEAD
-          <ion-card (click)="goToEmployeeDetail()">
-=======
-          <ion-card *ngFor="let employee of employees" (click)="detail(opportunity);">
->>>>>>> development
+          <ion-card *ngFor="let employee of employees" (click)="goToEmployeeDetail(employee.id);">
            <ion-item>
             <ion-card-content>
                <ion-label>

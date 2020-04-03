@@ -5,6 +5,7 @@ import { EmployeeService } from '../services/employee.service';
 import { AddressService } from '../services/address.service';
 import { PhoneService } from '../services/phone.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 const moment = _moment;
 
 @Component({
@@ -48,7 +49,7 @@ export class CreateEmployeePage implements OnInit {
                 
 
   constructor(private datePicker:DatePicker, private employeeService:EmployeeService, private addressService:AddressService,
-    private phoneService:PhoneService, private alertController: AlertController) { }
+    private phoneService:PhoneService, private alertController: AlertController, private router:Router) { }
 
   ngOnInit() {
       this.getAllEmployees()
@@ -71,6 +72,7 @@ export class CreateEmployeePage implements OnInit {
                   this.phoneService.addPhone(this.phone).subscribe(result=>{
                     console.log(result);
                       this.presentAlert("Completado!", "Usuario creado satisfactoriamente!");
+                      this.router.navigate(['/folder']);
                   },
                   error=>{
                     console.log('cannot create a phone')

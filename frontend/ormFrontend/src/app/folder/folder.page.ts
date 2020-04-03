@@ -19,23 +19,22 @@ export class FolderPage implements OnInit {
     private employeeService:EmployeeService, private phoneService:PhoneService ) { }
 
   ngOnInit() {
-   
+  
   }
 
   ionViewWillEnter(){
     this.getAllEmployees();
   }
 
+  goToEmployeeDetail(employeeId){
+    this.router.navigate(["/employee-detail", employeeId]);
+  }
 
 
   createEmployee(){
     this.router.navigate(['/create-employee']);
   }
 
-
-
-
-  
 
   getAllEmployees(){
       this.employeeService.getAllEmployees().subscribe(result=>{
