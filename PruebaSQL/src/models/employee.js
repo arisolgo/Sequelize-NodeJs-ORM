@@ -74,6 +74,10 @@ module.exports = (sequelize, DataTypes) => {
         Employee.hasOne(models.Address)
     };
 
+    Employee.associate = (models) => {
+        Employee.hasMany(models.Employee)
+    };
+
     return Employee;
 
 };
