@@ -58,19 +58,19 @@
           </ion-item>
 
           <ion-item>
-            <ion-input [(ngModel)] = "address.city" placeholder="Ciudad" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.city" placeholder="Ciudad" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input [(ngModel)] = "address.province" placeholder="Provincia" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.province" placeholder="Provincia" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input [(ngModel)] = "address.country" placeholder="Pais" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.country" placeholder="Pais" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input [(ngModel)] = "address.postCode" placeholder="Codigo Postal" type="number"></ion-input>
+            <ion-input [(ngModel)] = "address.postcode" placeholder="Codigo Postal" type="text"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -99,7 +99,7 @@
 
      <ion-item>
      
-      <ion-input placeholder ="Fecha de Inicio " [(ngModel)]="startDate" required  ></ion-input>
+      <ion-input placeholder ="Fecha de Inicio " [(ngModel)]="employee.startDate" required  ></ion-input>
     </ion-item>
 
     
@@ -110,7 +110,7 @@
 
    <ion-item>
     
-    <ion-input placeholder ="Fecha de finalización " [(ngModel)]="endDate"   ></ion-input>
+    <ion-input placeholder ="Fecha de finalización " [(ngModel)]="employee.endDate"   ></ion-input>
   </ion-item>
       </ion-card-content>
     </ion-card>

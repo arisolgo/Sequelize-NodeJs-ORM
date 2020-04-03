@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         firstName: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 notEmpty: true
             }
@@ -19,28 +19,28 @@ module.exports = (sequelize, DataTypes) => {
 
         lastName: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         salary: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         startDate: {
             type: DataTypes.DATE,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         endDate: {
             type: DataTypes.DATE,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 notEmpty: true
             }

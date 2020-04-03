@@ -24,15 +24,15 @@ export class EmployeeService {
   }
 
   addEmployee(formData) {
-    const postData = JSON.stringify(formData);
-    return this.http.post(this.baseUrl + '/employee/', postData);
+    
+    return this.http.post(this.baseUrl + '/employee/', formData);
   }
 
   updateEmployee(id, formData) {
-    const postData = JSON.stringify(formData);
+  
    
     return this.http.put(
-      this.baseUrl +  '/employee/' + id, postData);
+      this.baseUrl +  '/employee/' + id, formData);
   }
 
   deleteEmployee(id) {

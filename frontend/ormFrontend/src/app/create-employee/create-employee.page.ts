@@ -56,7 +56,7 @@ export class CreateEmployeePage implements OnInit {
 
 
   createEmployee(){
-    
+    console.log(this.address);
       this.addressService.addAddress(this.address).subscribe(result=>{
             console.log(result);
             let addressResponse:any = result;

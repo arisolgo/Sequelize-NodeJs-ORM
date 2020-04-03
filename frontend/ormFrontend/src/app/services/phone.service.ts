@@ -23,15 +23,13 @@ export class PhoneService {
   }
 
   addPhone(formData) {
-    const postData = JSON.stringify(formData);
-    return this.http.post(this.baseUrl + '/phone/', postData);
+    return this.http.post(this.baseUrl + '/phone/', formData);
   }
 
   updatePhone(id, formData) {
-    const postData = JSON.stringify(formData);
    
     return this.http.put(
-      this.baseUrl +  '/phone/' + id, postData);
+      this.baseUrl +  '/phone/' + id, formData);
   }
 
   deletePhone(id) {

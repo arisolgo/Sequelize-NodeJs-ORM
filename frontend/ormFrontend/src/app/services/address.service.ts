@@ -23,8 +23,8 @@ export class AddressService {
   }
 
   addAddress(formData) {
-    const postData = JSON.stringify(formData);
-    return this.http.post(this.baseUrl + '/address/', postData);
+    
+    return this.http.post(this.baseUrl + '/address/', formData);
   }
 
   updateAddress(id, formData) {
