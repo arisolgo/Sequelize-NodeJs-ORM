@@ -10,17 +10,17 @@
 <ion-content [fullscreen] = "true">
 
     <ion-card>
-      <ion-card-header> Datos generales</ion-card-header>
+      <ion-card-header> Datos Generales</ion-card-header>
       <ion-card-content>
 
         <ion-item>              
           <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
               <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
             </ion-select> -->
-            <ion-select placeholder="Tipo">
-              <ion-select-option> Empresarial </ion-select-option>
-              <ion-select-option> Local </ion-select-option>
-              <ion-select-option> Particular </ion-select-option>
+            <ion-select [(ngModel)] = "project.type" placeholder="Tipo">
+              <ion-select-option value = "Empresarial"> Empresarial </ion-select-option>
+              <ion-select-option value = "Local"> Local </ion-select-option>
+              <ion-select-option value = "Particular"> Particular </ion-select-option>
             </ion-select>
           </ion-item>
 
@@ -28,8 +28,8 @@
             <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
                 <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
               </ion-select> -->
-              <ion-select placeholder="Lider">
-                <ion-select-option> Prueba </ion-select-option>
+              <ion-select placeholder="Lider" [(ngModel)]="employee" (ionChange)="setLeader(employee)">
+                <ion-select-option *ngFor="let employee of employees" >{{employee.id}} - {{employee.firstName}} {{employee.lastName}} </ion-select-option>
               </ion-select>
             </ion-item>
        
@@ -37,28 +37,21 @@
 
         <ion-list lines="full" class="ion-no-margin ion-no-padding">
           <ion-item>
-            <ion-input placeholder="Nombre" type="text"></ion-input>
+            <ion-input  [(ngModel)]="project.name" placeholder="Nombre" type="text"></ion-input>
           </ion-item>
         
           <ion-item style="width: 150px; text-align: center;">
-            <ion-input placeholder="Presupuesto"  type="number" min = "0">$</ion-input>
+            <ion-input  [(ngModel)]="project.budget" placeholder="Presupuesto"  type="number" min = "0">$</ion-input>
           </ion-item>
 
 
           
   <ion-item>
     <ion-label>Empleados Colaboradores</ion-label>
-    <ion-select multiple="true" cancelText="Cancelar" okText="Agregar">
-      <ion-select-option value="bacon">Bacon</ion-select-option>
-      <ion-select-option value="olives">Black Olives</ion-select-option>
-      <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
-      <ion-select-option value="peppers">Green Peppers</ion-select-option>
-      <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
-      <ion-select-option value="onions">Onions</ion-select-option>
-      <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
-      <ion-select-option value="pineapple">Pineapple</ion-select-option>
-      <ion-select-option value="sausage">Sausage</ion-select-option>
-      <ion-select-option value="Spinach">Spinach</ion-select-option>
+    <ion-select [(ngModel)]="assignedUsers" multiple="true" cancelText="Cancelar" okText="Agregar" (ionChange)="printArray()">
+      <ion-select-option [value]="{employeeId: employee.id}"
+      *ngFor="let employee of employees">{{employee.id}} - {{employee.firstName}} {{employee.lastName}}
+    </ion-select-option>
     </ion-select>
   </ion-item>
   
@@ -73,7 +66,7 @@
 
 
     <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
-      <ion-button size ="default">Crear Proyecto</ion-button>
+      <ion-button size ="default" (click)= "createProject()" >Crear Proyecto</ion-button>
  </div>
 
   

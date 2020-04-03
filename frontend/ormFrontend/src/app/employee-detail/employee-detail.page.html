@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de Empleado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list>
+      <ion-fab-button color="danger" data-desc="Eliminar" (click)="deleteEmployee();">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
+
+  <ion-card>
+    <ion-card-header> Datos personales</ion-card-header>
+    <ion-card-content>
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-input [(ngModel)]="employee.firstName" placeholder="Nombre"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input [(ngModel)]="employee.lastName" placeholder="Apellido"></ion-input>
+        </ion-item>
+      </ion-list>
+
+  </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header> Teléfono </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+        <ion-item>              
+          <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
+              <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
+            </ion-select> -->
+            <ion-select [(ngModel)] ="phone.type"  placeholder="Tipo">
+              <ion-select-option value="Residencial"> Residencial </ion-select-option>
+              <ion-select-option value="Celular"> Celular </ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ion-item>
+          <ion-input placeholder="Número" [(ngModel)] = "phone.phoneNumber" type="number"></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header> Dirección </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+      
+        <ion-item>
+          <ion-input [(ngModel)] = "address.street" placeholder="Calle" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)] = "address.city" placeholder="Ciudad" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)] = "address.province" placeholder="Provincia" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)] = "address.country" placeholder="Pais" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)] = "address.postcode" placeholder="Codigo Postal" type="text"></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header> Datos Laborales </ion-card-header>
+    <ion-card-content>
+      <ion-item style="width: 100px; text-align: center;">
+        <ion-input [(ngModel)] = "employee.salary" placeholder="Salario"  type="number" min = "0">$</ion-input>
+      </ion-item>
+
+      <ion-item>              
+        <!-- <ion-select placeholder="Tanque" [(ngModel)] ="tank" (ionChange)="setTankValue(tank)">
+            <ion-select-option  *ngFor="let tank of tankList.products">{{tank.productDescription}}</ion-select-option>
+          </ion-select> -->
+          <ion-select  [(ngModel)] ="manager" (ionChange)="setManager(manager)" placeholder="Gerente">
+            <ion-select-option *ngFor="let manager of allEmployees"> {{manager.id}} - {{manager.firstName}} {{manager.lastName}} </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input readonly>
+            {{currentManager.firstName}} {{currentManager.lastName}}
+          </ion-input>
+        </ion-item>
+
+      <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
+        <ion-button size ="default" (click) ="pickStartDate()" shape="round">Fecha de Inicio</ion-button>
+   </div>
+
+   <ion-item>
+   
+    <ion-input placeholder ="Fecha de Inicio " [(ngModel)]="employee.startDate" required  ></ion-input>
+  </ion-item>
+
+  
+
+    <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
+      <ion-button size ="default" (click) ="pickEndDate()" shape="round">Fecha de finalización</ion-button>
+ </div>
+
+ <ion-item>
+  
+  <ion-input placeholder ="Fecha de finalización " [(ngModel)]="employee.endDate"   ></ion-input>
+</ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+
+
+  <div class="actionBtn" style="display: flex; justify-content: center; margin-bottom: 15px; margin-top: 25px; ">
+    <ion-button size ="default" (click) ="updateEmployee()">Actualizar Empleado</ion-button>
+</div>
+
+
+</ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "ormFrontend",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
