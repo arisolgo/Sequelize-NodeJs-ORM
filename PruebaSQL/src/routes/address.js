@@ -10,7 +10,7 @@ module.exports = app => {
     app.get('/address/:id', (req, res) => {
 
         Address.findByPk(req.params.id, {
-                attributes: ['id', 'street', 'city', 'province','country','postcode', 'addressId']
+                attributes: ['id', 'street', 'city', 'province','country','postcode']
             })
             .then(result => res.json(result))
             .catch(error => {
