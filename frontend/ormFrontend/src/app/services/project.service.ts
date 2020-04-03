@@ -8,6 +8,7 @@ import { throwError } from 'rxjs/internal/observable/throwError';
 export class ProjectService {
   baseUrl = 'http://192.168.137.1:4000';
   allProjects: any = [];
+  allProjectsEmployees: any =[];
   
 
   constructor(private http: HttpClient) {}
@@ -37,6 +38,30 @@ export class ProjectService {
   deleteProject(id) {
     return this.http.delete(this.baseUrl + '/project/' + id);
   }
+
+  getAllProjectEmployees(){
+    this.allProjectsEmployees = this.http.get(this.baseUrl + '/projectEmployee');
+    return this.allProjectsEmployees;
+  }
+
+  getProjectEmployee(id){
+    return this.http
+    .get(this.baseUrl + '/projectEmployee/' + id);
+  }
+
+  addProjectEmployee(formData) {
+    
+    return this.http.post(this.baseUrl + '/projectEmployee/', formData);
+  }
+
+  deleteProjectEmployee(id) {
+    return this.http.delete(this.baseUrl + '/projectEmployee/' + id);
+  }
+
+  
+
+
+
 
 }
 
