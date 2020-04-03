@@ -14,15 +14,15 @@ export class ProjectsPage implements OnInit {
   constructor(private projectService:ProjectService, private router:Router, private employeeService:EmployeeService) { }
 
   ngOnInit() {
+    
+  }
+
+  ionViewWillEnter(){
     this.getAllProjects();
   }
 
   createProject(){
     this.router.navigate(['/create-project']);
-  }
-
-  goToEditProject(project){
-    this.router.navigate(["/project-detail", 2]);
   }
 
 
@@ -39,7 +39,7 @@ export class ProjectsPage implements OnInit {
   }
 
   goToProjectDetail(project){
-    this.router.navigate(['/project-detail'+ project.id]);
+    this.router.navigate(['/project-detail', project.id]);
   }
   
   

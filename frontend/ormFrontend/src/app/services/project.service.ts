@@ -44,9 +44,9 @@ export class ProjectService {
     return this.allProjectsEmployees;
   }
 
-  getProjectEmployee(id){
+  getProjectEmployee(projectId){
     return this.http
-    .get(this.baseUrl + '/projectEmployee/' + id);
+    .get(this.baseUrl + '/projectEmployee/' + projectId);
   }
 
   addProjectEmployee(formData) {
