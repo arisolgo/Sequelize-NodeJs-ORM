@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddressService } from '../services/address.service';
+import { EmployeeService } from '../services/employee.service';
+import { PhoneService } from '../services/phone.service';
 
 @Component({
   selector: 'app-folder',
@@ -9,13 +11,22 @@ import { AddressService } from '../services/address.service';
 })
 export class FolderPage implements OnInit {
   public folder: string;
-  addresses:any;
-
-  constructor(private activatedRoute: ActivatedRoute, private router:Router, private addressService:AddressService ) { }
+  addresses:any =[];
+  employees:any = [];
+  phones:any =[];
+  
+  constructor(private activatedRoute: ActivatedRoute, private router:Router, private addressService:AddressService,
+    private employeeService:EmployeeService, private phoneService:PhoneService ) { }
 
   ngOnInit() {
-    this.getAllAddresses();
+   
   }
+
+  ionViewWillEnter(){
+    this.getAllEmployees();
+  }
+
+
 
   createEmployee(){
     this.router.navigate(['/create-employee']);
@@ -24,12 +35,34 @@ export class FolderPage implements OnInit {
   goToEmployeeDetail(employee){
 
   }
-  getAllAddresses(){
-      this.addressService.getAllAddress().subscribe(result=>{
-          console.log(result);
-      }, err=>{
-        console.log(err);
+
+
+  
+
+  getAllEmployees(){
+      this.employeeService.getAllEmployees().subscribe(result=>{
+
+          this.employees = result;
+
+          this.employees.forEach(element => {
+                this.addressService.getAddress(element.addressId).subscribe(result=>{
+                      element['address'] = result;
+                })
+
+                this.phoneService.getAllPhones().subscribe(result=>{
+                  this.phones = result;
+
+                  this.phones.forEach(phoneObj => {
+                      if(phoneObj.ownerId == element.id)
+                       element['phone'] = phoneObj;
+                    });
+                
+              })
+
+          });
+          console.log(this.employees);
       })
+      
   }
   
 

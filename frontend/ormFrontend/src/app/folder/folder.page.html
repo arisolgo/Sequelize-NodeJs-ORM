@@ -20,14 +20,15 @@
   <ion-list >
       <ion-grid style="height: 100%">
         <ion-row justify-content-center align-items-center style="height: 100%">
-          <ion-card (click)="detail(opportunity);">
+          <ion-card *ngFor="let employee of employees" (click)="detail(opportunity);">
            <ion-item>
             <ion-card-content>
                <ion-label>
-                  <ion-card-title style="color:#007C00; font-size:16px;"> <b> opportunity.title</b> </ion-card-title>
-                  <h3>opportunity.contactNumber</h3>
-                  <h3> opportunity.addressLine1 </h3>
-                  <h3>opportunity.city, opportunity.stat</h3>
+                  <ion-card-title style="color:#007C00; font-size:16px;"> <b> {{employee.firstName}} {{employee.lastName}} </b> </ion-card-title>
+                  <h3>Telefono : {{employee.phone.phoneNumber}}</h3>
+                  <h3>Dirección</h3>
+                  <h3> {{employee.address.street}}, {{employee.address.province}}, </h3>
+                  <h3> {{employee.address.country}},</h3>
               </ion-label>
              </ion-card-content>
           </ion-item>
