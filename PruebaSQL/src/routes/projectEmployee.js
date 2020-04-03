@@ -19,15 +19,16 @@ module.exports = app => {
 
     });
 
-    app.route('/projectEmployee/:employeeId')
+    app.route('/projectEmployee/:projectId')
         .get((req, res) => {
-            ProjectEmployee.findOne({ where: req.params })
+            ProjectEmployee.findAll({ where: req.params })
                 .then(result => res.json(result))
                 .catch(error => {
                     res.status(412).json({ msg: error.message });
                 });
         })
 
+    app.route('/projectEmployee/:employeeId')
     .delete((req, res) => {
         ProjectEmployee.destroy({ where: req.params })
             .then(result => res.sendStatus(204))
